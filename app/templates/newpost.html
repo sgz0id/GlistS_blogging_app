@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{%block head %}
+    <title>GlistS New Posts</title>
+{% endblock %}
+
+{%block body %}
+<br>
+<h1>Want to post a new blog?</h1>
+<hr>
+<br>
+<h2>Create a new Blog:</h2>
+<form action='/posts' method='POST'>
+    <label for="title">Title:</label> 
+    <input class="form-control" type="text" name="title" id="title" placeholder="enter title..." aria-label="enter title...">
+    <br>
+    <label for="author">Author:</label> 
+    <input class="form-control" type="text" name="author" id="author" placeholder="enter author..." aria-label="enter author...">
+    <br>
+    <label for="content">Post:</label>
+    <textarea class="form-control" name="content" id="content" placeholder="enter your blog..." aria-label="enter your blog..." rows="3"></textarea>
+    <br>
+    <input type='submit' class="btn btn-outline-success" type="Post" value="Post">
+</form>
+<hr>
+
+{% endblock %}
