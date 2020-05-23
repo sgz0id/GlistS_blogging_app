@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{%block head %}
+<title>GlistS Posts</title>
+{% endblock %}
+
+
+
+{%block body %}
+<hr>
+<br>
+<div>
+    <h1 style="display: inline;">All Blogs</h1>
+    <a style="display: inline;" class="btn btn-success float-right" href="/posts/new">+ New Blog</a>
+</div>
+<hr>
+	<form class="form-inline my-2 my-md-0" action="/posts/author" method="POST">
+		<input class="form-control" type="text" name="author" id="author" placeholder="..." aria-label="...">
+		<input type='submit' class="btn btn-info" type="Search by Author" value="Search by Author">
+	</form>
+<br>
+<br>
+<h2>This place looks empty!</h2>
+<small>Suvadeep</small>
+<p>Start telling us what you want to say. You can pretty much write anything you want. It's upto your imagination</p>
+<hr>
+<br>
+{% for post in posts %}
+<br>
+<h2>{{ post.title }}</h2>
+{% if post.author %}
+<small>Written by: {{ post.author }} on {{ post.dateposted }}</small>
+{% else %}
+<small>Written by: Anonymous on {{ post.dateposted }}</small>
+{% endif %}
+<br>
+<br>
+<p>{{post.content}}</p>
+<br>
+<!--pre wrap for printing new line in content as it is-->
+<a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete this post</a>
+<a class="btn btn-primary" href="/posts/edit/{{ post.id }}">Edit this post</a>
+<hr>
+<br>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{%block head %}
+    <title>GlistS Edit Posts</title>
+{% endblock %}
+
+{%block body %}
+
+<h1>Editing the blog...</h1>
+
+<hr>
+    <h2>Let's finish up the edit!</h2>
+    <form action='/posts/edit/{{ post.id }}' method='POST'>
+        <label for="title">Title:</label> 
+        <input class="form-control" type="text" name="title" id="title" value="{{ post.title }}" aria-label="enter title...">
+        <br>
+        <label for="author">Author:</label> 
+        <input class="form-control" type="text" name="author" id="author" value="{{ post.author }}" aria-label="enter author...">
+        <br>
+        <label for="content">Post:</label>
+        <textarea class="form-control" name="content" id="content" aria-label="enter your blog..." rows="3">{{ post.content }}</textarea>
+        <br>
+        <input type='submit' class="btn btn-outline-primary" type="Save" value="Save">
+    </form>
+<hr>
+
+{% endblock %}

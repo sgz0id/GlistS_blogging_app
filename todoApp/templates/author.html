@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{%block head %}
+<title>GlistS Posts</title>
+{% endblock %}
+
+{%block body %}
+
+<hr>
+<br>
+<div>
+    <h1 style="display: inline;">Your Blogs</h1>
+    <a style="display: inline;" class="btn btn-success float-right" href="/posts/new">+ New Blog</a>
+</div>
+<hr>
+<br>
+
+{% for post in posts %}
+<br>
+<h2>{{ post.title }}</h2>
+<small>Written by: {{ post.author }} on {{ post.dateposted }}</small>
+<br>
+<br>
+<p>{{post.content}}</p>
+<br>
+<!--pre wrap for printing new line in content as it is-->
+<a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete this post</a>
+<a class="btn btn-primary" href="/posts/edit/{{ post.id }}">Edit this post</a>
+<hr>
+<br>
+{% endfor %}
+{% endblock %}
