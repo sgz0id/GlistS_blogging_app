@@ -20,7 +20,7 @@
 	</form>
 <br>
 <br>
-<h2>This place looks empty!</h2>
+<h2>Write Blogs!</h2>
 <small>Suvadeep</small>
 <p>Start telling us what you want to say. You can pretty much write anything you want. It's upto your imagination</p>
 <hr>
@@ -38,8 +38,15 @@
 <p>{{post.content}}</p>
 <br>
 <!--pre wrap for printing new line in content as it is-->
-<a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete this post</a>
+<!--<a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete this post</a>-->
 <a class="btn btn-primary" href="/posts/edit/{{ post.id }}">Edit this post</a>
+<br>
+<br>
+<h7><b>To delete post, please type your name.</b></h7>
+<form class="form-inline my-2 my-md-2" action="/posts/delete" method="POST">
+	<input class="form-control" type="text" name="author" id="author" placeholder="enter your name.." aria-label="enter your name..">
+	<input type='submit' class="btn btn-danger" type="Delete" value="Delete">
+</form>
 <hr>
 <br>
 {% endfor %}

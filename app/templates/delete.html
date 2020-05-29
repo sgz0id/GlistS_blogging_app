@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{%block head %}
+<title>GlistS Posts</title>
+{% endblock %}
+
+{%block body %}
+
+<hr>
+<br>
+<div>
+    <h1 style="display: inline;">These are the posts you are allowed to Delete</h1>
+</div>
+<hr>
+<br>
+
+{% for post in posts %}
+<br>
+<h2>{{ post.title }}</h2>
+<small>Written by: {{ post.author }} on {{ post.dateposted }}</small>
+<br>
+<br>
+<p>{{post.content}}</p>
+<br>
+<!--pre wrap for printing new line in content as it is-->
+<a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete this post</a>
+<a class="btn btn-warning" href="/posts">Go back to all posts</a>
+<hr>
+<br>
+{% endfor %}
+{% endblock %}

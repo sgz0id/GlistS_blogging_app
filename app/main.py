@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import pytz
@@ -50,7 +50,7 @@ def delete(id):
     db.session.delete(delete_post)
     db.session.commit()
     return redirect('/posts')
-
+        
 
 @app.route('/posts/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
@@ -92,3 +92,13 @@ def authorWise():
         name_wise_post = BlogPost.query.filter_by(author=author_name).all()
         return render_template("author.html", posts=name_wise_post)
 
+@app.route('/posts/delete', methods=["POST", "GET"])
+def deletionPage():
+    if request.method == "POST":
+        author_name = request.form["author"]
+        name_wise_post = BlogPost.query.filter_by(author=author_name).all()
+        return render_template("delete.html", posts=name_wise_post)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+    
