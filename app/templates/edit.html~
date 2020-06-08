@@ -19,7 +19,7 @@
         <br>
         <label for="content">Post:</label>
         <textarea class="form-control" name="content" id="content" aria-label="enter your blog..." rows="3"
-        style="white-space:pre-wrap">{{ post.content }}</textarea>
+        style="white-space:">{{ post.content }}</textarea>
         <br>
         <input type='submit' class="btn btn-outline-primary" type="Save" value="Save">
     </form>

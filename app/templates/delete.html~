@@ -20,7 +20,7 @@
 <small>Written by: {{ post.author }} on {{ post.dateposted }}</small>
 <br>
 <br>
-<p style="white-space:pre-wrap">{{post.content}}</p>
+<p>{{post.content}}</p>
 <br>
 <!--pre wrap for printing new line in content as it is-->
 <a class="btn btn-danger" href="/posts/delete/{{ post.id }}">Delete this post</a>
